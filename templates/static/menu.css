@@ -1,0 +1,51 @@
+.text-image-middle {
+    display: flex !important;
+    align-items: center;
+}
+
+.ui[class*="vertically divided"].grid>.row>.column {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.submenu {
+    height: 50px;
+}
+
+a.section.disabled {
+    color: gray;
+    pointer-events: none;
+    cursor: default;
+}
+
+a.section.enabled {
+    color: black;
+}
+
+a.section:not(.active) {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+div.section:not(.active) {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/*a.section.enabled:hover {*/
+/*    color: #f5841f;*/
+/*}*/
+
+a.section.active {
+    color: #f5841f;
+}
+
+/*a.section.active:hover {*/
+/*    color: #f5841f;*/
+/*}*/
+
+#mobile-menu {
+    padding-top: 0;
+}
+
+.ui.breadcrumb i.icon {
+    margin: 0 0 0 0 !important;
+}

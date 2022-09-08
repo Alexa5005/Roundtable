@@ -1,0 +1,162 @@
+{{ define "header" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+   <title>Главная | СПбГУТ</title>
+
+   <link rel="stylesheet" type="text/css" href="https://abiturient.sut.ru/fomantic/semantic.min.css">
+       <link rel="stylesheet" type="text/css" href="https://abiturient.sut.ru/css/base.css">
+       <link rel="stylesheet" type="text/css" href="https://abiturient.sut.ru/css/menu/menu.css">
+       <link rel="stylesheet" type="text/css" href="https://abiturient.sut.ru/css/menu/sidebar.css">
+
+           <link rel="stylesheet" type="text/css" href="https://abiturient.sut.ru/css/forms/generalinfo.css">
+       <link rel="stylesheet" type="text/css" href="https://abiturient.sut.ru/dadata/suggestions.min.css">
+       <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/semantic.min.css">
+       <script
+         src="https://code.jquery.com/jquery-3.1.1.min.js"
+         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+         crossorigin="anonymous"></script>
+       <script src="https://semantic-ui.com/dist/semantic.min.js"></script>
+
+       <script src="https://abiturient.sut.ru/js/jquery-3.6.0.min.js"></script>
+       <script src="https://abiturient.sut.ru/fomantic/semantic.min.js"></script>
+       <script src="https://abiturient.sut.ru/js/jquery.mask.min.js"></script>
+
+       <script src="https://abiturient.sut.ru/js/base.js" defer></script>
+       <script src="https://abiturient.sut.ru/js/menu.js"></script>
+
+       <script src="https://abiturient.sut.ru/js/forms/generalinfo.js"></script>
+       <script src="https://abiturient.sut.ru/dadata/jquery.suggestions.min.js"></script>
+
+       <style>
+       body, html {
+           height: 100%;
+           margin: 0;
+       }
+
+       .hero-image {
+         background-image: url("https://images.unsplash.com/photo-1531256379416-9f000e90aacc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80");
+         height: 50%;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         position: relative;
+       }
+
+       .hero-text {
+         text-align: center;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         color: SteelBlue;
+       }
+
+       .hero-text button {
+         border: none;
+         outline: 0;
+         display: inline-block;
+         padding: 10px 25px;
+         color: black;
+         background-color: #ddd;
+         text-align: center;
+         cursor: pointer;
+       }
+
+       .hero-text button:hover {
+         background-color: #555;
+         color: white;
+       }
+       </style>
+
+</head>
+<body>
+
+
+
+<div class="pusher">
+    <div class="ui center aligned middle aligned vertically divided grid fixed menu" id="desktop-menu">
+    <div class="row">
+        <div class="ui container">
+            <div class="ui grid">
+                <div class="three wide column">
+                    <a href="/">
+                        <img src="https://filearchive.cnews.ru/img/book/2022/02/17/spbgut.png" class="ui small image"
+                             alt="СПбГУТ им. проф. М.А.Бонч-Бруевича">
+                    </a>
+                </div>
+                <div class="eight wide column">
+                    <div class="ui secondary menu">
+                        <a class="item" href="/lineM" >
+                            Лента мероприятий       </a>
+                        <a class="item" href="/Mero">
+                            Мои мероприятия          </a>
+                        <a class="item" href="/create">
+                            Создать мероприятие     </a>
+                      </div>
+                </div>
+                <div class="five wide right aligned middle aligned column">
+                    <div class="ui list">
+                        <div class="item">
+                            <div class="ui dropdown" id="user_menu_dropdown">
+                                <div class="text text-image-middle">
+                                    <i class="dropdown icon"></i>
+
+                                    <div class="image-cropper-avatar">
+                                            <img class="ui centered image profile-pic"
+                                                 src="https://abiturient.sut.ru/storage/avatar/2022/59dac6ba-c086-11ec-80ff-0050568a1abd/1651654341.jpg"
+                                                 title="Костенко Александра Сергеевна" alt="Костенко Александра Сергеевна">
+                                        </div>
+
+                                    <div class="content">
+                                        <div class="ui sub header" id="fio">Костенко Александра Сергеевна</div>
+                                            <span id="status">Роль: Организатор</span>
+                                    </div>
+                                </div>
+                                <div class="menu">
+                                    <a class="item"
+                                       href="/ChangePas">Изменить пароль</a>
+                                    <a class="item"
+                                       href="https://abiturient.sut.ru/ru/logout">Выйти</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="item">
+    <div class="ui list">
+        <div class="item">
+            <div class="text text-image-middle">
+                                    <div class="image-cropper-avatar">
+                        <img class="ui centered image profile-pic"
+                             src="https://abiturient.sut.ru/storage/avatar/2022/59dac6ba-c086-11ec-80ff-0050568a1abd/1651654341.jpg"
+                             title="Костенко Александра Сергеевна" alt="Костенко Александра Сергеевна">
+                    </div>
+                                <div class="content">
+                    <div class="ui sub header" id="fio">Костенко Александра Сергеевна</div>
+                                        <span id="status">Роль: Организатор</span>
+                                    </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+          <!-- <div class="text-end">
+            <li class="nav-item"><a href="/auth" class="btn btn-outline-light me-2" aria-current="page">Авторизация</a>
+            <a href="/reg" class="btn btn-warning" aria-current="page">Регистрация</a></li>
+          </div> -->
+</div>
+
+{{ end }}

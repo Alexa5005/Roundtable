@@ -1,0 +1,330 @@
+{{ define "create" }}
+
+{{ template "MenuCreate"}}
+
+<body>
+<div class="pusher">
+    <div class="ui center aligned middle aligned vertically divided grid fixed menu" id="desktop-menu">
+    <div class="row">
+        <div class="ui container">
+            <div class="ui grid">
+                <div class="three wide column">
+                    <a href="/">
+                        <img src="https://filearchive.cnews.ru/img/book/2022/02/17/spbgut.png" class="ui small image"
+                             alt="СПбГУТ им. проф. М.А.Бонч-Бруевича">
+                    </a>
+                </div>
+                <div class="eight wide column">
+                    <div class="ui secondary menu">
+                        <a class="item" href="/line" >
+                            Лента мероприятий       </a>
+                        <a class="item" href="/Mero">
+                            Мои мероприятия          </a>
+                        <a class="item" href="/create">
+                            Создать мероприятие     </a>
+                      </div>
+                </div>
+                <div class="five wide right aligned middle aligned column">
+                    <div class="ui list">
+                        <div class="item">
+                            <div class="ui dropdown" id="user_menu_dropdown">
+                                <div class="text text-image-middle">
+                                    <i class="dropdown icon"></i>
+
+                                    <div class="image-cropper-avatar">
+                                            <img class="ui centered image profile-pic"
+                                                 src="https://abiturient.sut.ru/storage/avatar/2022/59dac6ba-c086-11ec-80ff-0050568a1abd/1651654341.jpg"
+                                                 title="Костенко Александра Сергеевна" alt="Костенко Александра Сергеевна">
+                                        </div>
+
+                                    <div class="content">
+                                        <div class="ui sub header" id="fio">Костенко Александра Сергеевна</div>
+                                            <span id="status">Роль: Организатор</span>
+                                    </div>
+                                </div>
+                                <div class="menu">
+                                    <a class="item"
+                                       href="/ChangePas">Изменить пароль</a>
+                                    <a class="item"
+                                       href="https://abiturient.sut.ru/ru/logout">Выйти</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row submenu">
+ <div class="ui center aligned container">
+     <div class="column">
+         <div class="ui breadcrumb">
+           <a class="active section"
+              href="/create">Основное</a>
+           <i class="right arrow icon divider"></i>
+           <a class=" section"
+              href="/FormReg">Форма регистрации</a>
+           <i class="right arrow icon divider"></i>
+           <a class=" section"
+              href="/badge">Бейдж</a>
+           <i class="right arrow icon divider"></i>
+           <a class=" section"
+              href="/sert">Сертификат</a>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+
+<div class="ui container">
+        <div class="ui stackable centered grid">
+            <div class="row">
+                <div class="column">
+                    <form id="create" class="ui form" action="/save_article" method="post">
+                        <input type="hidden" name="_token" value="" >
+                        <div class="ui raised fluid card">
+                          <div class="content">
+                              <div class="header">Создание мероприятия</div>
+                          </div>
+                            <div class="content">
+                              <div class="field required">
+                              <label for="title">Название мероприятия</label>
+                              <input type="text" placeholder="Введите название мероприятия" name="title" required="" id="title" class="form-control"> <br>
+                              </div>
+
+                              <div class="field required">
+                              <label for="organization">Название организации</label>
+                              <input type="text" placeholder="Введите название организации" name="organization" id="organization"class="form-control"required=""> <br>
+                              </div>
+
+                              <div class="field required">
+                              <label for="description">Описание мероприятия</label>
+                              <textarea name="description" placeholder="Введите описание мероприятия" name="description" id="description" required="" class="form-control"></textarea> <br>
+                              </div>
+
+                              <div class="field required">
+                                <label for="typeMero">Выберите тип мероприятия</label>
+                                  <div class="ui fluid search selection medium dropdown" multiple="" id="typeMero">
+                                      <input type="hidden" name="typeMero" class="noselection">
+                                      <i class="dropdown icon"></i>
+                                      <i class="remove icon"></i><input class="search" autocomplete="fomantic-search" tabindex="0">
+                                      <div class="default text" >Выберите тип</div>
+                                      <div class="menu transition hidden" tabindex="-1" >
+                                          <div class="item selected"data-value="1">Научное мероприятие</div>
+                                          <div class="item"data-value="2">Развлекательное мероприятие</div>
+                                          <div class="item"data-value="3">Спортивное мероприятие</div>
+                                          <div class="item"data-value="4">Благотворительное мероприятие</div>
+                                          <div class="item"data-value="5">Учебное мероприятие</div>
+                                          <div class="item"data-value="6">Торжественное мероприятие</div>
+                                          <div class="item"data-value="7">Профессиональное мероприятие</div>
+                                          <div class="item"data-value="8">Другое</div>
+                                          </div>
+                                  </div>
+                              </div>
+
+                                <div class="two fields">
+                                    <div class="field required">
+                                        <label for="date1">Дата начала мероприятия</label>
+                                        <div class="ui calendar">
+                                          <div class="ui input left icon">
+                                            <div class="ui popup calendar">
+                                              <table class="ui celled center aligned unstackable table year three column">
+                                                <thead>
+                                                  <tr>
+                                                    <th colspan="3">
+                                                      <span class="link">2021 - 2032</span>
+                                                      <span class="prev link">
+                                                        <i class="calendar alternate outline icon"></i>
+                                                      </span>
+                                                      <span class="next link">
+                                                        <i class="chevron right icon"></i>
+                                                      </span>
+                                                    </th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td class="link link disabled">2021</td>
+                                                    <td class="link today focus">2022</td>
+                                                    <td class="link">2023</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="link">2024</td>
+                                                    <td class="link">2025</td>
+                                                    <td class="link">2026</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="link">2027</td>
+                                                    <td class="link">2028</td>
+                                                    <td class="link">2029</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="link">2030</td>
+                                                    <td class="link">2031</td>
+                                                    <td class="link">2032</td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                            </div>
+                                              <i class="calendar alternate outline icon"></i>
+                                              <input type="data" placeholder="Введите дату" id="date1" name="date1" value="" required="" tabindex="0">
+                                          </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field required">
+                                        <label for="date2">Дата окончания мероприятия</label>
+                                        <div class="ui calendar">
+                                            <div class="ui input left icon"><div class="ui popup calendar"><table class="ui celled center aligned unstackable table year three column"><thead><tr><th colspan="3"><span class="link">2021 - 2032</span><span class="prev link"><i class="calendar alternate outline icon"></i></span><span class="next link"><i class="chevron right icon"></i></span></th></tr></thead><tbody><tr><td class="link">2021</td><td class="link today focus">2022</td><td class="link">2023</td></tr><tr><td class="link">2024</td><td class="link">2025</td><td class="link">2026</td></tr><tr><td class="link">2027</td><td class="link">2028</td><td class="link">2029</td></tr><tr><td class="link">2030</td><td class="link">2031</td><td class="link">2032</td></tr></tbody></table></div>
+                                                <i class="calendar alternate outline icon"></i>
+                                                <input type="data" placeholder="Введите дату" id="date2" name="date2" value="" tabindex="0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                              <div class="field ">
+                                <label for="DopSelect">Дополнительные настройки</label>
+                                <div class="three fields ">
+
+                                  <div class="field ">
+                                    <div class="ui checkbox">
+                                      <input type="checkbox" name="NeedLine">
+                                      <label>Опубликовать в ленте мероприятий</label>
+                                    </div>
+                                  </div>
+                                    <div class="field ">
+                                      <div class="ui checkbox">
+                                        <input type="checkbox" name="NeedBadge">
+                                        <label>Необходим бейдж</label>
+                                      </div>
+                                    </div>
+                                    <div class="field ">
+                                      <div class="ui checkbox">
+                                        <input type="checkbox" name="NeedSert">
+                                        <label>Необходим сертификат</label>
+                                      </div>
+                                    </div>
+
+                                    <div class="field ">
+                                      <div class="ui checkbox">
+                                        <input type="checkbox" name="NReg">
+                                        <label>Запись незарегистрированных пользователей</label>
+                                      </div>
+                                    </div>
+                               </div>
+                               </div>
+
+
+                                <div class="center aligned column">
+                                    <button type="submit"  class="ui button orange" name="button">Далее</button>
+                                </div>
+                            </div>
+                          </div>
+                    </form>
+                </div>
+              </div>
+
+              <div class="row">
+                  <div class="column">
+                      <div class="ui three stackable cards">
+                                          </div>
+                  </div>
+              </div>
+
+          </div>
+</div>
+</div>
+
+</body>
+</html>
+
+
+{{ end }}
+
+<!-- старая рабочая версия
+<main role="main" class="inner cover">
+  <h1 class="cover-heading">Форма создания мероприятия</h1>
+    <form  action="/save_article" method="post">
+      <label for="title" class="form-label">Название мероприятия</label>
+      <input type="text" name="title" id="title" class="form-control"> <br>
+      <label for="description" class="form-label">Описание мероприятия</label>
+      <textarea name="description" name="description" id="description" class="form-control"></textarea> <br>
+        <label for="date1" class="form-label">Дата начала мероприятия</label>
+        <input type="date" class="form-control" name="date1" id="date1" placeholder="" value="" required="">
+        <div class="invalid-feedback">
+              Введите корректную дату
+        </div><br>
+        <label for="date2" class="form-label">Дата окончания мероприятия</label>
+        <input type="date" class="form-control" name="date2" id="date2" placeholder="" value="" required="">
+        <div class="invalid-feedback">
+              Введите корректную дату
+        </div><br>
+
+      <button type="submit" class="btn btn-warning">Перейти к выбору формы регистрации участника</button>
+    </form>
+  </main> -->
+
+
+
+
+<!-- <body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="float-md-start mb-0">Work in time</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="/">О нас</a>
+        <a class="nav-link active" aria-current="page" href="/create">Создать мероприятие</a>
+        <a class="nav-link" href="/auth">Авторизация</a>
+
+      </nav>
+    </div>
+  </header>
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">Форма создания мероприятия</h1>
+    <form action="/save_article" method="post">
+      <label for="title" class="form-label">Название мероприятия</label>
+      <input type="text" name="title" id="title" class="form-control"> <br>
+      <label for="description" class="form-label">Описание мероприятия</label>
+      <textarea name="description" id="description" class="form-control"></textarea> <br>
+        <label for="date1" class="form-label">Дата начала мероприятия</label>
+        <input type="date" class="form-control" name="date1" id="date1" placeholder="" value="" required="">
+        <div class="invalid-feedback">
+              Введите корректную дату
+        </div><br>
+        <label for="date2" class="form-label">Дата окончания мероприятия</label>
+        <input type="date" class="form-control" name="date2" id="date2" placeholder="" value="" required="">
+        <div class="invalid-feedback">
+              Введите корректную дату
+        </div><br>
+
+      <button type="submit" class="btn btn-warning">Перейти к выбору формы регистрации участника</button>
+    </form>
+  </main>
+
+
+
+-->
+
+
+
+
+
+<!-- <footer class="mt-auto text-white-50">
+</footer>
+</div>
+
+
+
+
+</body>  -->
