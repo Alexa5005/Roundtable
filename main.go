@@ -161,23 +161,23 @@ func save_article(w http.ResponseWriter, r *http.Request){
 		fmt.Println(err)
 		return
 	}
-	title := r.FormValue("title")
-	organization := r.FormValue("organization")
-	description := r.FormValue("description")
-	date1 := r.FormValue("date1")
-	date2 := r.FormValue("date2")
+	// title := r.FormValue("title")
+	// organization := r.FormValue("organization")
+	// description := r.FormValue("description")
+	// date1 := r.FormValue("date1")
+	// date2 := r.FormValue("date2")
 
-	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:8889)/WIT")
+	db, err := sql.Open("mysql", "kostenko:qwerty123@tcp(172.18.1.25:3306)/Mero")
 	if err != nil {
 		panic(err)
 	}
 
 	// Установка данных
-	insert, err := db.Query(fmt.Sprintf("INSERT INTO CreateEvents (title, organization, description, date1, date2) VALUES ('%s', '%s', '%s', '%s', '%s')", title, organization, description, date1, date2))
-	if err != nil {
-		panic(err)
-	}
-	defer insert.Close()
+	// insert, err := db.Query(fmt.Sprintf("INSERT INTO CreateEvents (title, organization, description, date1, date2) VALUES ('%s', '%s', '%s', '%s', '%s')", title, organization, description, date1, date2))
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// defer insert.Close()
 
 	defer db.Close()
 
@@ -216,7 +216,7 @@ func handleFunc()  {
 	http.HandleFunc("/sert", sert)
 	http.HandleFunc("/FormReg", FormReg)
 	http.HandleFunc("/konstrFormReg", konstrFormReg)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":3306", nil)
 }
 
 func main() {
