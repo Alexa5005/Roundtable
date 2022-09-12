@@ -15,7 +15,7 @@ type Mero struct {
 var lineMero = []Mero{}
 
 func index(w http.ResponseWriter, r *http.Request)  {
-	t, err := template.ParseFiles("templates/index.html", "templates/header.html", "templates/footer.html","templates/create.html","templates/MenuOrg.html","templates/line.html")
+	t, err := template.ParseFiles("templates/index.html", "templates/header.html", "templates/footer.html","templates/create.html","templates/MenuOrg.html")
 
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
