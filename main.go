@@ -12,10 +12,10 @@ type Mero struct {
 	Title, Organization, Description, Date1, Date2 string
 }
 
-var lineMero = []Mero{}
+// var lineMero = []Mero{}
 
 func index(w http.ResponseWriter, r *http.Request)  {
-	t, err := template.ParseFiles("templates/index.html", "templates/header.html", "templates/footer.html","templates/create.html","templates/MenuOrg.html","templates/line.html")
+	t, err := template.ParseFiles("templates/index.html", "templates/header.html", "templates/footer.html","templates/create.html","templates/MenuOrg.html")
 
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
@@ -84,7 +84,7 @@ func handleFunc()  {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/create", create)
 	http.HandleFunc("/save_article", save_article)
-	http.ListenAndServe("172.18.1.25:8080", nil)
+	http.ListenAndServe(":8080", nil)
 }
 
 func main() {
