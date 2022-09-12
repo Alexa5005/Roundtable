@@ -34,7 +34,6 @@ func create(w http.ResponseWriter, r *http.Request)  {
 	t.ExecuteTemplate(w, "create", nil)
 }
 
-
 func save_article(w http.ResponseWriter, r *http.Request){
 	if err := r.ParseForm(); err != nil {
 		fmt.Println(err)
