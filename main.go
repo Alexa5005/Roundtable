@@ -89,7 +89,7 @@ func save_article(w http.ResponseWriter, r *http.Request){
 
 func handleFunc()  {
 	http.Handle("/static", http.StripPrefix("/static/", http.FileServer(http.Dir("/static/"))))
-	http.HandleFunc("/current", current)
+	http.HandleFunc("/", current)
 	http.HandleFunc("/create", create)
 	http.HandleFunc("/success", success)
 	http.HandleFunc("/save_article", save_article)
