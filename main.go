@@ -70,7 +70,7 @@ func save_article(w http.ResponseWriter, r *http.Request){
 
 
 
-	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:8889)/Roundtable")
+	db, err := sql.Open("mysql", "kostenko:qwerty123@tcp(172.18.1.25:3306)/Roundtable")
 	if err != nil {
 		panic(err)
 	}
@@ -94,7 +94,7 @@ func handleFunc()  {
 	http.HandleFunc("/success", success)
 	http.HandleFunc("/save_article", save_article)
 	http.HandleFunc("/roundtable", roundtable)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe("172.18.1.25:8080", nil)
 
 }
 
