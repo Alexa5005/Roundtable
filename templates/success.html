@@ -1,4 +1,4 @@
-{{ define "roundtable" }}
+{{ define "success" }}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -106,70 +106,22 @@
 <div class="ui hidden divider"></div>
 <div class="ui hidden divider"></div>
 
+  <div class="content" id="main_content" style="margin-top: 35.1211px;">
+      <div class="ui container">
+          <div class="ui stackable center aligned grid">
+              <div class="row">
+                  <div class="column">
+                      <div class="ui raised fluid card">
+                        <div class="content">
+                          <div class="header">Вы зарегистрированы на мероприятие!</div>
+                      </div>
+                                  </div>
 
-<div class="ui container">
-        <div class="ui stackable centered grid">
-            <div class="row">
-                <div class="column">
-                    <form id="create" class="ui form" action="/save_article" method="post">
-                        <input type="hidden" name="_token" value="" >
-                        <div class="ui raised fluid card">
-                          <div class="content">
-                              <div class="header">Регистрация на Круглый стол "Цифровизация приемной комиссии 2022" </div>
-                          </div>
-                            <div class="content">
-                              <div class="three fields">
-
-                                <div class="field required">
-                                <label for="lastName">Фамилия</label>
-                                <input type="text" placeholder="Введите фамилию" name="lastName" required="" id="lastName" class="form-control"> <br>
-                                </div>
-                                <div class="field required">
-                                <label for="firstName">Имя</label>
-                                <input type="text" placeholder="Введите имя" name="firstName" required="" id="firstName" class="form-control"> <br>
-                                </div>
-                                <div class="field required">
-                                <label for="middleName">Отчетство</label>
-                                <input type="text" placeholder="Введите отчество" name="middleName" required="" id="middleName" class="form-control"> <br>
-                                </div>
-                              </div>
-
-                              <div class="field required">
-                              <label for="organization">Организация</label>
-                              <input type="text" placeholder="Введите организацию" name="organization" required="" id="organization" class="form-control"> <br>
-                              </div>
-                              <div class="field required">
-                              <label for="position">Должность</label>
-                              <input type="text" placeholder="Введите должность" name="position" required="" id="position" class="form-control"> <br>
-                              </div>
-
-                              <div class="two fields">
-                                <div class="field required">
-                                <label for="phone">Номер телефона</label>
-                                <input type="text" placeholder="Введите номер телефона" name="phone" required="" id="phone" maxlength="18" class="form-control"> <br>
-                                </div>
-                                <div class="field required">
-                                <label for="email">E-mail</label>
-                                <input type="text" placeholder="Введите e-mail" name="email" required="" id="email" class="form-control"> <br>
-                                </div>
-                              </div>
-                            
-                                <div class="center aligned column">
-                                    <button type="submit"  class="ui button orange" name="button">Зарегистрироваться</button>
-                                </div>
-                            </div>
-                          </div>
-                    </form>
-                </div>
+                      </div>
+                  </div>
               </div>
-
-
           </div>
-</div>
-
-
+      </div>
 </body>
-</html>
-
-
+{{ template "footer"}}
 {{ end }}
