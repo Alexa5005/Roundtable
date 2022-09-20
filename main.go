@@ -34,14 +34,23 @@ func success(w http.ResponseWriter, r *http.Request)  {
 	t.ExecuteTemplate(w, "success", nil)
 }
 
+<<<<<<< HEAD
 func roundtable(w http.ResponseWriter, r *http.Request)  {
 	t, err := template.ParseFiles("templates/roundtable.html", "templates/header.html", "templates/footer.html","templates/create.html")
+=======
+func current(w http.ResponseWriter, r *http.Request)  {
+	t, err := template.ParseFiles("templates/current.html", "templates/header.html", "templates/footer.html", "templates/roundtable.html")
+>>>>>>> 8c96117d7de81fbb62baf7455e4390e824e32e75
 
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
 	}
 
+<<<<<<< HEAD
 	t.ExecuteTemplate(w, "roundtable", nil)
+=======
+	t.ExecuteTemplate(w, "current", nil)
+>>>>>>> 8c96117d7de81fbb62baf7455e4390e824e32e75
 }
 
 func create(w http.ResponseWriter, r *http.Request)  {
@@ -90,7 +99,10 @@ func save_article(w http.ResponseWriter, r *http.Request){
 func handleFunc()  {
 	http.Handle("/static", http.StripPrefix("/static/", http.FileServer(http.Dir("/static/"))))
 	http.HandleFunc("/", current)
+<<<<<<< HEAD
 	http.HandleFunc("/current", current)
+=======
+>>>>>>> 8c96117d7de81fbb62baf7455e4390e824e32e75
 	http.HandleFunc("/create", create)
 	http.HandleFunc("/success", success)
 	http.HandleFunc("/save_article", save_article)
