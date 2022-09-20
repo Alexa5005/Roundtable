@@ -34,14 +34,14 @@ func success(w http.ResponseWriter, r *http.Request)  {
 	t.ExecuteTemplate(w, "success", nil)
 }
 
-func current(w http.ResponseWriter, r *http.Request)  {
+func roundtable(w http.ResponseWriter, r *http.Request)  {
 	t, err := template.ParseFiles("templates/current.html", "templates/header.html", "templates/footer.html", "templates/roundtable.html")
 
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
 	}
 
-	t.ExecuteTemplate(w, "current", nil)
+	t.ExecuteTemplate(w, "roundtable", nil)
 }
 
 func create(w http.ResponseWriter, r *http.Request)  {
@@ -70,7 +70,7 @@ func save_article(w http.ResponseWriter, r *http.Request){
 
 
 
-	db, err := sql.Open("mysql", "kostenko:qwerty123@tcp(172.18.1.25:3306)/Roundtable")
+	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:8889)/Roundtable")
 	if err != nil {
 		panic(err)
 	}
@@ -89,12 +89,12 @@ func save_article(w http.ResponseWriter, r *http.Request){
 
 func handleFunc()  {
 	http.Handle("/static", http.StripPrefix("/static/", http.FileServer(http.Dir("/static/"))))
-	http.HandleFunc("/", current)
+	http.HandleFunc("/current", current)
 	http.HandleFunc("/create", create)
 	http.HandleFunc("/success", success)
 	http.HandleFunc("/save_article", save_article)
 	http.HandleFunc("/roundtable", roundtable)
-	http.ListenAndServe("172.18.1.25:8080", nil)
+	http.ListenAndServe(":8080", nil)
 
 }
 
